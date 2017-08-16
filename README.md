@@ -1,18 +1,25 @@
 # Running Your Files
 
 ## Overview
+
 We've set up the project structure for you, so once you download the files, you should be able to run each project and its tests individually!
 
 How do you run a test suite or a main() method, you might ask? No worries -- here's a step-by-step guide.
 
-[Set up your tests](#step-by-step) [(gif)](#the-hell-for-leather-overview) | [Run main methods](#running-main)
-
+[Set up your tests](#the-hell-for-leather-overview) | [Detailed Troubleshooting](#detailed-troubleshooting) | [Run main methods](#running-main)
 
 ## IMPORTANT
 
-There is one caveat - you __MUST__ not open an individual project, or bad things might happen! We are not responsible for what may ensue in the event that you disobey. (Just kidding - make a post about it on the discussion board if you do run into problems.) That is to say, open the project with the _same name_ as the GitHub repo.
+### Opening Files
+You __MUST__ not open an individual project, or bad things might happen! We are not responsible for what may ensue in the event that you disobey. (Just kidding - make a post about it on the discussion board if you do run into problems.) That is to say, open the project with the _same name_ as the GitHub repo.
 
 ![the correct way to open vs incorrect](https://edx-course-spdx-kiczales.s3.amazonaws.com/SC/GitHubPictures/what-to-not-do.png)
+
+
+### "Do you want to add [...] to version control/Git/svn?"
+Short answer: probably not
+
+Long answer: Our repositories should have .gitignore files, which should prevent you from committing unwanted residue of your workspace specific to your machine (e.g. workspace.xml, .idea folder). Of course, you're free to add these files to git if you want, since you'll probably only be pushing and pulling to your own repositories for this course. However, it's better practice to leave your git repos clean and free of version- or machine-specific information.
 
 
 
@@ -23,8 +30,9 @@ There is one caveat - you __MUST__ not open an individual project, or bad things
 ![Test config gif](https://edx-course-spdx-kiczales.s3.amazonaws.com/SC/GitHubPictures/github_readme_animation.gif)
 
 <br />
+<br />
 
-### Step-by-step
+## DETAILED TROUBLESHOOTING
 
 
 1. Open your project in IntelliJ. (Don't be afraid of the vintage 15.0.2 edition used in these screenshots!)
