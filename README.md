@@ -1,10 +1,6 @@
 # Running Your Files
 
-## Overview
-
-We've set up the project structure for you, so once you download the files, you should be able to run each project and its tests individually!
-
-How do you run a test suite or a main() method, you might ask? No worries -- here's a step-by-step guide.
+We've set up the project structure for you, so once you download the files, you should be able to run each project and its tests individually! And now we have step-by-step guides on how to run tests or a main() method.
 
 [Set up your tests](#the-hell-for-leather-overview) | [Detailed Troubleshooting](#detailed-troubleshooting) | [Run main methods](#running-main)
 
