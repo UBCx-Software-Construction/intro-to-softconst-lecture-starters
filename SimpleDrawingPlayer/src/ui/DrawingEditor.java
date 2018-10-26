@@ -26,10 +26,10 @@ public class DrawingEditor extends JFrame {
 
 	public DrawingEditor() {
 		super("Drawing Player");
-        initializeFields();
-        initializeGraphics();
-        initializeSound();
-        initializeInteraction();
+		initializeFields();
+		initializeGraphics();
+		initializeSound();
+		initializeInteraction();
 	}
 
 	// getters
@@ -38,40 +38,40 @@ public class DrawingEditor extends JFrame {
 
 	// MODIFIES: this
 	// EFFECTS:  initializes a DrawingMouseListener to be used in the JFrame
-    private void initializeInteraction() {
-        DrawingMouseListener dml = new DrawingMouseListener();
-        addMouseListener(dml);
-        addMouseMotionListener(dml);
-    }
+    	private void initializeInteraction() {
+		DrawingMouseListener dml = new DrawingMouseListener();
+		addMouseListener(dml);
+		addMouseMotionListener(dml);
+   	}	
 
-    // MODIFIES: this
-    // EFFECTS:  initializes this DrawingEditor's midisynth field, then calls open() on it
-    private void initializeSound() {
-        midiSynth = new MidiSynth();
-        midiSynth.open();
-    }
+    	// MODIFIES: this
+    	// EFFECTS:  initializes this DrawingEditor's midisynth field, then calls open() on it
+    	private void initializeSound() {
+		midiSynth = new MidiSynth();
+		midiSynth.open();
+    	}
 
-    // MODIFIES: this
-    // EFFECTS:  draws the JFrame window where this DrawingEditor will operate, and populates the tools to be used
-    //           to manipulate this drawing
-    private void initializeGraphics() {
-        setLayout(new BorderLayout());
-        setMinimumSize(new Dimension(WIDTH, HEIGHT));
-        createTools();
-        addNewDrawing();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setVisible(true);
-    }
+    	// MODIFIES: this
+    	// EFFECTS:  draws the JFrame window where this DrawingEditor will operate, and populates the tools to be used
+    	//           to manipulate this drawing
+    	private void initializeGraphics() {
+		setLayout(new BorderLayout());
+		setMinimumSize(new Dimension(WIDTH, HEIGHT));
+		createTools();
+		addNewDrawing();
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setVisible(true);
+    	}
 
 	// MODIFIES: this
-    // EFFECTS:  sets activeTool, currentDrawing to null, and instantiates drawings and tools with ArrayList
-    //           this method is called by the DrawingEditor constructor
-    private void initializeFields() {
-        activeTool = null;
-        currentDrawing = null;
-        tools = new ArrayList<Tool>();
-    }
+    	// EFFECTS:  sets activeTool, currentDrawing to null, and instantiates drawings and tools with ArrayList
+    	//           this method is called by the DrawingEditor constructor
+    	private void initializeFields() {
+		activeTool = null;
+		currentDrawing = null;
+		tools = new ArrayList<Tool>();
+    	}
 
 	// MODIFIES: this
 	// EFFECTS:  declares and instantiates a Drawing (newDrawing), and adds it to drawings
@@ -95,47 +95,47 @@ public class DrawingEditor extends JFrame {
 	}
 
 	// EFFECTS: if activeTool != null, then mousePressedInDrawingArea is invoked on activeTool, depends on the
-    //          type of the tool which is currently activeTool
+    	//          type of the tool which is currently activeTool
 	private void handleMousePressed(MouseEvent e)  {
 		if (activeTool != null) {
-            activeTool.mousePressedInDrawingArea(e);
-        }
+        	    activeTool.mousePressedInDrawingArea(e);
+        	}
 		repaint();
 	}
 
-    // EFFECTS: if activeTool != null, then mouseReleasedInDrawingArea is invoked on activeTool, depends on the
-    //          type of the tool which is currently activeTool
+    	// EFFECTS: if activeTool != null, then mouseReleasedInDrawingArea is invoked on activeTool, depends on the
+    	//          type of the tool which is currently activeTool
 	private void handleMouseReleased(MouseEvent e) {
 		if (activeTool != null) {
-            activeTool.mouseReleasedInDrawingArea(e);
-        }
+        	    activeTool.mouseReleasedInDrawingArea(e);
+        	}
 		repaint();
 	}
 
-    // EFFECTS: if activeTool != null, then mouseClickedInDrawingArea is invoked on activeTool, depends on the
-    //          type of the tool which is currently activeTool
+    	// EFFECTS: if activeTool != null, then mouseClickedInDrawingArea is invoked on activeTool, depends on the
+    	//          type of the tool which is currently activeTool
 	private void handleMouseClicked(MouseEvent e) {
 		if (activeTool != null) {
-            activeTool.mouseClickedInDrawingArea(e);
-        }
+        	    activeTool.mouseClickedInDrawingArea(e);
+        	}
 		repaint();
 	}
 
-    // EFFECTS: if activeTool != null, then mouseDraggedInDrawingArea is invoked on activeTool, depends on the
-    //          type of the tool which is currently activeTool
+    	// EFFECTS: if activeTool != null, then mouseDraggedInDrawingArea is invoked on activeTool, depends on the
+    	//          type of the tool which is currently activeTool
 	private void handleMouseDragged(MouseEvent e) {
 		if (activeTool != null) {
-            activeTool.mouseDraggedInDrawingArea(e);
-        }
+        	    activeTool.mouseDraggedInDrawingArea(e);
+        	}
 		repaint();
 	}
 
-    // MODIFIES: this
-    // EFFECTS:  sets the given tool as the activeTool
+    	// MODIFIES: this
+    	// EFFECTS:  sets the given tool as the activeTool
 	public void setActiveTool(Tool aTool) {
 		if (activeTool != null) {
-            activeTool.deactivate();
-        }
+            	activeTool.deactivate();
+        	}
 		aTool.activate();
 		activeTool = aTool;
 	}
@@ -146,65 +146,64 @@ public class DrawingEditor extends JFrame {
 	}
 
 	// MODIFIES: this
-    // EFFECTS:  a helper method which declares and instantiates all tools
+    	// EFFECTS:  a helper method which declares and instantiates all tools
 	private void createTools() {
 		JPanel toolArea = new JPanel();
 		toolArea.setLayout(new GridLayout(0,1));
 		toolArea.setSize(new Dimension(0, 0));
 		add(toolArea, BorderLayout.SOUTH);
 
-        ShapeTool rectTool = new ShapeTool(this, toolArea);
-        tools.add(rectTool);
+		ShapeTool rectTool = new ShapeTool(this, toolArea);
+		tools.add(rectTool);
 
-        MoveTool moveTool = new MoveTool(this, toolArea);
-        tools.add(moveTool);
+		MoveTool moveTool = new MoveTool(this, toolArea);
+		tools.add(moveTool);
 
-        ResizeTool resizeTool = new ResizeTool(this, toolArea);
-        tools.add(resizeTool);
+		ResizeTool resizeTool = new ResizeTool(this, toolArea);
+		tools.add(resizeTool);
 
-        DeleteTool deleteTool = new DeleteTool(this, toolArea);
-        tools.add(deleteTool);
+		DeleteTool deleteTool = new DeleteTool(this, toolArea);
+		tools.add(deleteTool);
 
-        PlayShapeTool playShapeTool = new PlayShapeTool(this, toolArea);
-		tools.add(playShapeTool);
+		PlayShapeTool playShapeTool = new PlayShapeTool(this, toolArea);
+			tools.add(playShapeTool);
 
-        PlayDrawingTool playDrawingTool = new PlayDrawingTool(this, toolArea);
-        tools.add(playDrawingTool);
+		PlayDrawingTool playDrawingTool = new PlayDrawingTool(this, toolArea);
+		tools.add(playDrawingTool);
 
-        setActiveTool(rectTool);
+		setActiveTool(rectTool);
 	}
 
 	public static void main(String args[]) {
 		new DrawingEditor();
 	}
 
-    private class DrawingMouseListener extends MouseAdapter {
-
+    	private class DrawingMouseListener extends MouseAdapter {
 		// EFFECTS: Forward mouse pressed event to the active tool
-        public void mousePressed(MouseEvent e) {
-            handleMousePressed(translateEvent(e));
-        }
+        	public void mousePressed(MouseEvent e) {
+            		handleMousePressed(translateEvent(e));
+        	}
 
-        // EFFECTS: Forward mouse released event to the active tool
-        public void mouseReleased(MouseEvent e) {
-            handleMouseReleased(translateEvent(e));
-        }
+		// EFFECTS: Forward mouse released event to the active tool
+		public void mouseReleased(MouseEvent e) {
+		    handleMouseReleased(translateEvent(e));
+		}
 
 		// EFFECTS: Forward mouse clicked event to the active tool
-        public void mouseClicked(MouseEvent e) {
-            handleMouseClicked(translateEvent(e));
-        }
+		public void mouseClicked(MouseEvent e) {
+		    handleMouseClicked(translateEvent(e));
+		}
 
 		// EFFECTS: Forward mouse dragged event to the active tool
-        public void mouseDragged(MouseEvent e) {
-            handleMouseDragged(translateEvent(e));
-        }
+		public void mouseDragged(MouseEvent e) {
+		    handleMouseDragged(translateEvent(e));
+		}
 
 		// EFFECTS: translates the mouse event to current drawing's coordinate system
-        private MouseEvent translateEvent(MouseEvent e) {
-            return SwingUtilities.convertMouseEvent(e.getComponent(), e, currentDrawing);
-        }
-    }
+		private MouseEvent translateEvent(MouseEvent e) {
+		    return SwingUtilities.convertMouseEvent(e.getComponent(), e, currentDrawing);
+		}
+    	}
 
 
 }
