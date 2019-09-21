@@ -46,12 +46,12 @@ public class Shape {
         this.playLineCoord = playLineCoord;
     }
 
-    // EFFECTS: return true iff the given x value is within the bounds of the Shape
+    // EFFECTS: return true if the given x value is within the bounds of the Shape
     public boolean containsX(int x) {
         return (this.x <= x) && (x <= this.x + width);
     }
 
-    // EFFECTS: return true iff the given y value is within the bounds of the Shape
+    // EFFECTS: return true if the given y value is within the bounds of the Shape
     public boolean containsY(int y) {
         return (this.y <= y) && (y <= this.y + height);
     }
